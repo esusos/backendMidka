@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>List</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-light">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" th:href="@{/index}">Main page</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" th:href="@{/products}">Category list</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" th:href="@{/add-product}">Add Product</a>
+    </li>
+  </ul>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Year</th>
+          <th>Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p: ${products}">
+          <td th:text="${p.name}"></td>
+          <td th:text="${p.producer}"></td>
+          <td th:text="${p.year}"></td>
+          <td th:text="${p.cost}"></td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
